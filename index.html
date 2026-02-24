@@ -8,6 +8,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
     rel="stylesheet" />
+  <link rel="icon" href="app_icon/developer%20icon.png" type="image/png" />
   <link rel="stylesheet" href="index.css" />
 </head>
 
@@ -24,8 +25,8 @@
     <header class="hero">
       <div class="badge">KR STUDIO</div>
       <h1 class="hero-title">
-        <span class="text-gradient">Mobile Apps</span><br />
-        <span class="text-gradient-accent">Built in Cambodia</span>
+        <span class="text-gradient" id="greeting-text">Hello everyone! Good evening</span>
+        <span class="text-gradient-accent">Welcome to my KR STUDIO</span>
       </h1>
       <p class="subtitle">Independent mobile app developer from Cambodia. Creating fun puzzle games and useful
         productivity tools.</p>
@@ -65,21 +66,15 @@
           <div class="card-content">
             <div class="glare"></div>
             <div class="app-icon icon-purple">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-                <rect x="14" y="3" width="7" height="7" rx="1"></rect>
-                <rect x="14" y="14" width="7" height="7" rx="1"></rect>
-                <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-              </svg>
+              <img src="app_icon/app_icon_blockerino.png" alt="Blockerino Icon" />
             </div>
             <h3>Blockerino</h3>
             <p>A modern Block Blast-style puzzle game with Firebase backend, multiple game modes, and comprehensive
               analytics.</p>
             <div class="tags">
               <span class="tag">Unity</span>
-              <span class="tag">iOS coming soon</span>
               <span class="tag">Android</span>
+              <span class="tag">iOS coming soon</span>
             </div>
           </div>
         </a>
@@ -90,11 +85,7 @@
           <div class="card-content">
             <div class="glare"></div>
             <div class="app-icon icon-pink">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                <circle cx="12" cy="13" r="4"></circle>
-              </svg>
+              <img src="app_icon/app_icon_khmerlens.png" alt="KhmerLens Icon" />
             </div>
             <h3>KhmerLens</h3>
             <p>A simple Android app to capture photos and convert them to PDF documents instantly with on-device
@@ -102,7 +93,7 @@
             <div class="tags">
               <span class="tag"
                 style="color: #ffb3c1; border-color: rgba(252,92,125,0.4); background: rgba(252,92,125,0.1);">Closed
-                Testing</span>
+                testing - Alpha</span>
               <span class="tag">Flutter</span>
               <span class="tag">Android</span>
               <span class="tag">iOS coming soon</span>
@@ -118,6 +109,27 @@
   </div>
 
   <script>
+    // Dynamic Greeting based on time of day
+    function updateGreeting() {
+      const greetingElement = document.getElementById('greeting-text');
+      const hour = new Date().getHours();
+      let greeting = 'Hello everyone! ';
+
+      if (hour >= 5 && hour < 12) {
+        greeting += 'Good morning';
+      } else if (hour >= 12 && hour < 18) {
+        greeting += 'Good afternoon';
+      } else if (hour >= 18 && hour < 22) {
+        greeting += 'Good evening';
+      } else {
+        greeting += 'Good night';
+      }
+
+      greetingElement.textContent = greeting;
+    }
+
+    updateGreeting();
+
     // 3D Tilt Effect for App Cards
     const cards = document.querySelectorAll('.app-card');
 
