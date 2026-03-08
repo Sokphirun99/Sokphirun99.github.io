@@ -4,166 +4,479 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KR STUDIO – Mobile App Developer</title>
+  <title>KR STUDIO — Mobile App & Game Development Studio</title>
+  <meta name="description" content="KR STUDIO - Independent mobile app and game development studio from Cambodia. Creating fun puzzle games and useful productivity tools.">
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="icon" href="app_icon/developer%20icon.png" type="image/png" />
-  <link rel="stylesheet" href="index.css?v=1.1" />
+  <link rel="stylesheet" href="index.css?v=2.0" />
 </head>
 
 <body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">KR</span>
+        <span class="logo-text">STUDIO</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
   <!-- Animated Background -->
   <div class="bg-orbs">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
   </div>
 
   <div class="container">
+    <!-- Hero Section -->
     <header class="hero">
-      <div class="badge">KR STUDIO</div>
-      <h1 class="hero-title"><span class="text-gradient" id="greeting-text">Hello everyone!</span><br />
-        <span class="text-gradient-accent">Welcome to my KR STUDIO</span>
+      <div class="hero-badge">
+        <span class="status-dot"></span>
+        Available for Projects
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">We Craft</span>
+        <span class="title-line text-gradient-accent">Mobile Experiences</span>
+        <span class="title-line">That Matter</span>
       </h1>
-      <p class="subtitle">Independent mobile app developer from Cambodia. Creating fun puzzle games and useful
-        productivity tools.</p>
+      <p class="hero-subtitle">
+        Independent digital studio from Cambodia specializing in mobile games and productivity apps. 
+        We build with passion, ship with precision.
+      </p>
 
-      <div class="contact-row">
-        <a class="btn btn-primary" href="https://github.com/Sokphirun99" target="_blank">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-            </path>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value">2+</span>
+          <span class="stat-label">Apps Published</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">Unity</span>
+          <span class="stat-label">Game Engine</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">Flutter</span>
+          <span class="stat-label">Cross-Platform</span>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">
+          <span>View Our Work</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
           </svg>
-          <span>GitHub</span>
         </a>
-        <a class="btn btn-ghost" href="mailto:khiev.sokpirun999@gmail.com">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          <span>Contact</span>
+        <a class="btn btn-ghost" href="#contact">
+          <span>Get in Touch</span>
         </a>
       </div>
     </header>
 
-    <section class="portfolio">
+    <!-- About Section -->
+    <section id="about" class="about">
       <div class="section-header">
-        <h2 class="section-title">Published Works</h2>
+        <span class="section-number">01</span>
         <div class="section-line"></div>
+        <span class="section-tag">About Us</span>
       </div>
-
-      <div class="apps-grid">
-        <!-- Blockerino Card -->
-        <a class="app-card" href="https://play.google.com/store/apps/details?id=com.KRSTUDIO.blockerino"
-          target="_blank">
-          <div class="card-border-wrap"></div>
-          <div class="card-content">
-            <div class="glare"></div>
-            <div class="app-icon icon-purple">
-              <img src="app_icon/app_icon_blockerino.png" alt="Blockerino Icon" width="64" height="64" />
+      
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="about-title">Building Digital Products with Purpose</h2>
+          <p class="about-description">
+            KR STUDIO is an independent mobile development studio based in Phnom Penh, Cambodia. 
+            Founded with a passion for creating engaging mobile experiences, we combine technical 
+            expertise with creative design to build apps that users love.
+          </p>
+          <p class="about-description">
+            From addictive puzzle games to practical productivity tools, we approach every project 
+            with attention to detail and commitment to quality.
+          </p>
+          
+          <div class="about-values">
+            <div class="value">
+              <div class="value-icon">🎮</div>
+              <h4>Game Development</h4>
+              <p>Unity-powered games with engaging mechanics</p>
             </div>
-            <h3>Blockerino</h3>
-            <p>A modern Block Blast-style puzzle game with Firebase backend, multiple game modes, and comprehensive
-              analytics.</p>
-            <div class="tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Android</span>
-              <span class="tag">iOS coming soon</span>
+            <div class="value">
+              <div class="value-icon">📱</div>
+              <h4>App Development</h4>
+              <p>Cross-platform apps with Flutter</p>
             </div>
-          </div>
-        </a>
-
-        <!-- KhmerLens Card -->
-        <a class="app-card" href="https://play.google.com/store/apps/details?id=com.KRSTUDIO.khmerscan" target="_blank">
-          <div class="card-border-wrap"></div>
-          <div class="card-content">
-            <div class="glare"></div>
-            <div class="app-icon icon-pink">
-              <img src="app_icon/app_icon_khmerlens.png" alt="KhmerLens Icon" width="64" height="64" />
-            </div>
-            <h3>KhmerLens</h3>
-            <p>A simple Android app to capture photos and convert them to PDF documents instantly with on-device
-              capabilities. (Currently in closed testing, not yet in production).</p>
-            <div class="tags">
-              <span class="tag"
-                style="color: #ffb3c1; border-color: rgba(252,92,125,0.4); background: rgba(252,92,125,0.1);">Closed
-                testing - Alpha</span>
-              <span class="tag">Flutter</span>
-              <span class="tag">Android</span>
-              <span class="tag">iOS coming soon</span>
+            <div class="value">
+              <div class="value-icon">⚡</div>
+              <h4>Performance</h4>
+              <p>Optimized for speed and efficiency</p>
             </div>
           </div>
-        </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <div class="section-line"></div>
+        <span class="section-tag">Technologies</span>
+      </div>
+      
+      <h2 class="section-title">Tools We Master</h2>
+      
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon unity"></div>
+          <h4>Unity</h4>
+          <p>Game Development</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon flutter"></div>
+          <h4>Flutter</h4>
+          <p>Cross-Platform Apps</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon firebase"></div>
+          <h4>Firebase</h4>
+          <p>Backend & Analytics</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon android"></div>
+          <h4>Android</h4>
+          <p>Native Development</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon dart"></div>
+          <h4>Dart</h4>
+          <p>Programming Language</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon csharp"></div>
+          <h4>C#</h4>
+          <p>Game Scripting</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="portfolio">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <div class="section-line"></div>
+        <span class="section-tag">Portfolio</span>
+      </div>
+      
+      <h2 class="section-title-large">Featured Projects</h2>
+      <p class="section-subtitle">A selection of our published work</p>
+
+      <div class="projects-list">
+        <!-- Blockerino Project -->
+        <div class="project-card featured">
+          <div class="project-visual">
+            <div class="project-icon-wrapper">
+              <img src="app_icon/app_icon_blockerino.png" alt="Blockerino" />
+            </div>
+            <div class="project-glow purple"></div>
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <span class="project-badge">Featured Game</span>
+              <span class="project-status live">Live on Play Store</span>
+            </div>
+            <h3 class="project-name">Blockerino</h3>
+            <p class="project-description">
+              A modern Block Blast-style puzzle game featuring addictive gameplay, 
+              Firebase backend integration, multiple game modes, and comprehensive 
+              analytics to track player engagement.
+            </p>
+            <div class="project-features">
+              <span class="feature">Multiple Game Modes</span>
+              <span class="feature">Firebase Backend</span>
+              <span class="feature">Analytics</span>
+              <span class="feature">Leaderboards</span>
+            </div>
+            <div class="project-meta">
+              <div class="project-platforms">
+                <span class="platform android">Android</span>
+                <span class="platform ios">iOS Soon</span>
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Unity</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">Firebase</span>
+              </div>
+            </div>
+            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.KRSTUDIO.blockerino" target="_blank">
+              <span>View on Play Store</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- KhmerLens Project -->
+        <div class="project-card">
+          <div class="project-visual">
+            <div class="project-icon-wrapper">
+              <img src="app_icon/app_icon_khmerlens.png" alt="KhmerLens" />
+            </div>
+            <div class="project-glow pink"></div>
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <span class="project-badge">Productivity</span>
+              <span class="project-status testing">In Testing</span>
+            </div>
+            <h3 class="project-name">KhmerLens</h3>
+            <p class="project-description">
+              A smart document scanner designed for Cambodian users. Capture photos 
+              and convert them to PDF documents instantly with on-device processing 
+              capabilities.
+            </p>
+            <div class="project-features">
+              <span class="feature">PDF Conversion</span>
+              <span class="feature">On-Device Processing</span>
+              <span class="feature">Khmer Optimized</span>
+            </div>
+            <div class="project-meta">
+              <div class="project-platforms">
+                <span class="platform android">Android</span>
+                <span class="platform ios">iOS Soon</span>
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Dart</span>
+              </div>
+            </div>
+            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.KRSTUDIO.khmerscan" target="_blank">
+              <span>Join Closed Testing</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <div class="section-line"></div>
+        <span class="section-tag">Services</span>
+      </div>
+      
+      <h2 class="section-title-large">What We Do</h2>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3>Mobile Game Development</h3>
+          <p>Engaging games built with Unity for Android and iOS platforms.</p>
+          <ul class="service-list">
+            <li>2D/3D Game Development</li>
+            <li>Puzzle & Casual Games</li>
+            <li>Firebase Integration</li>
+            <li>Ad Monetization</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-number">02</div>
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+              <line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+          </div>
+          <h3>App Development</h3>
+          <p>Cross-platform mobile applications using Flutter framework.</p>
+          <ul class="service-list">
+            <li>Productivity Apps</li>
+            <li>Utility Applications</li>
+            <li>Custom Solutions</li>
+            <li>UI/UX Design</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Consulting</h3>
+          <p>Technical guidance for your mobile project needs.</p>
+          <ul class="service-list">
+            <li>Architecture Planning</li>
+            <li>Tech Stack Selection</li>
+            <li>Code Review</li>
+            <li>Performance Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="contact-container">
+        <div class="contact-content">
+          <div class="section-header">
+            <span class="section-number">05</span>
+            <div class="section-line"></div>
+            <span class="section-tag">Contact</span>
+          </div>
+          
+          <h2 class="contact-title">Let's Build Something <span class="text-gradient-accent">Amazing</span> Together</h2>
+          <p class="contact-description">
+            Have a project in mind? We'd love to hear about it. Whether it's a game idea, 
+            app concept, or collaboration opportunity, let's talk.
+          </p>
+          
+          <div class="contact-links">
+            <a href="mailto:khiev.sokpirun999@gmail.com" class="contact-link primary">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label">Email Us</span>
+                <span class="contact-value">khiev.sokpirun999@gmail.com</span>
+              </div>
+            </a>
+            
+            <a href="https://github.com/Sokphirun99" target="_blank" class="contact-link">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">@Sokphirun99</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        
+        <div class="contact-visual">
+          <div class="contact-card">
+            <div class="contact-card-content">
+              <div class="contact-avatar">
+                <img src="app_icon/developer%20icon.png" alt="KR STUDIO" />
+              </div>
+              <h4>KR STUDIO</h4>
+              <p>Mobile Development Studio</p>
+              <div class="contact-location">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Phnom Penh, Cambodia
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <footer>
-      <p>© 2026 KR STUDIO — Phnom Penh, Cambodia</p>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="footer-logo">KR STUDIO</span>
+          <p>Building digital experiences from Cambodia</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 KR STUDIO. All rights reserved.</p>
+        <p>Made with ❤️ in Phnom Penh</p>
+      </div>
     </footer>
   </div>
 
   <script>
-    // Dynamic Greeting based on time of day
-    function updateGreeting() {
-      const greetingElement = document.getElementById('greeting-text');
-      const hour = new Date().getHours();
-      let greeting = 'Hello everyone! ';
+    // Mobile Navigation Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
 
-      if (hour >= 5 && hour < 12) {
-        greeting += 'Good morning';
-      } else if (hour >= 12 && hour < 18) {
-        greeting += 'Good afternoon';
-      } else if (hour >= 18 && hour < 22) {
-        greeting += 'Good evening';
-      } else {
-        greeting += 'Good night';
-      }
-
-      greetingElement.textContent = greeting;
-    }
-
-    updateGreeting();
-
-    // 3D Tilt Effect for App Cards
-    const cards = document.querySelectorAll('.app-card');
-
-    // Only apply on non-touch devices
-    if (window.matchMedia("(hover: hover)").matches) {
-      cards.forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-
-          const rotateX = ((y - centerY) / centerY) * -6;
-          const rotateY = ((x - centerX) / centerX) * 6;
-
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-
-          // Glossy highlight effect
-          const glare = card.querySelector('.glare');
-          if (glare) {
-            glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.06) 0%, transparent 60%)`;
-          }
-        });
-
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-          const glare = card.querySelector('.glare');
-          if (glare) {
-            glare.style.background = 'transparent';
-          }
-        });
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          navLinks.classList.remove('active');
+          navToggle.classList.remove('active');
+        }
       });
-    }
+    });
+
+    // Scroll Animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.about, .tech-stack, .portfolio, .services, .contact').forEach(section => {
+      section.classList.add('scroll-animate');
+      observer.observe(section);
+    });
+
+    // Navbar Background on Scroll
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
   </script>
 </body>
 
