@@ -1,7 +1,17 @@
 import { ChevronRight } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
+import { logEvent } from "firebase/analytics";
+import { analytics } from "../../firebase";
 
 export function Projects() {
+  const trackProjectClick = (projectName) => {
+    if (analytics) {
+      logEvent(analytics, 'select_content', {
+        content_type: 'project',
+        content_id: projectName
+      });
+    }
+  };
   const blockerinoFeatures = [
     "Classic, Adventure & Timed Modes",
     "Multiplier Combo System",
@@ -55,7 +65,13 @@ export function Projects() {
                   ))}
                 </div>
 
-                <a href="https://play.google.com/store/apps/details?id=com.KRSTUDIO.blockerino" target="_blank" rel="noreferrer" className="text-[#0071e3] hover:underline inline-flex items-center gap-1 text-[18px] font-black group/link">
+                <a 
+                  href="https://play.google.com/store/apps/details?id=com.KRSTUDIO.blockerino" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  onClick={() => trackProjectClick('Blockerino')}
+                  className="text-[#0071e3] hover:underline inline-flex items-center gap-1 text-[18px] font-black group/link"
+                >
                   View on Play Store <ChevronRight size={20} className="group-hover/link:translate-x-1 transition-transform" />
                 </a>
               </div>
@@ -88,7 +104,13 @@ export function Projects() {
                   ))}
                 </div>
 
-                <a href="https://play.google.com/store/apps/details?id=com.KRSTUDIO.khmerscan" target="_blank" rel="noreferrer" className="text-[#0071e3] hover:underline inline-flex items-center gap-1 text-[18px] font-black group/link">
+                <a 
+                  href="https://play.google.com/store/apps/details?id=com.KRSTUDIO.khmerscan" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  onClick={() => trackProjectClick('KhmerLens')}
+                  className="text-[#0071e3] hover:underline inline-flex items-center gap-1 text-[18px] font-black group/link"
+                >
                   Join the Beta <ChevronRight size={20} className="group-hover/link:translate-x-1 transition-transform" />
                 </a>
               </div>
