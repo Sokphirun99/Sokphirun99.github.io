@@ -13,9 +13,18 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase only if API key is present
+let app;
+let analytics = null;
 
-// Initialize Analytics and export it
-export const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
+if (import.meta.env.VITE_FIREBASE_API_KEY) {
+  app = initializeApp(firebaseConfig);
+  if (typeof window !== 'undefined') {
+    analytics = getAnalytics(app);
+  }
+} else {
+  console.warn("Firebase API Key is missing. Analytics will not be initialized.");
+}
+
+export { analytics };
 export default app;
