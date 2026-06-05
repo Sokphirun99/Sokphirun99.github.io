@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, Globe } from 'lucide-react';
+import { useLanguage } from '../../context/useLanguage';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+  const { lang, setLang, t, languages } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -21,11 +24,13 @@ export function Navbar() {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Services', href: '#services' },
-    { label: 'Contact', href: '#contact' }
+    { label: t.nav.about, href: '#about' },
+    { label: t.nav.projects, href: '#projects' },
+    { label: t.nav.services, href: '#services' },
+    { label: t.nav.contact, href: '#contact' }
   ];
+
+  const currentLang = languages.find(l => l.code === lang);
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -50,9 +55,40 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-4">
+          {/* Language Selector */}
+          <div className="relative">
+            <button
+              onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm border border-black/10 hover:bg-white/30 transition-all text-black font-bold"
+            >
+              <Globe size={14} />
+              <span>{currentLang.label}</span>
+              <ChevronDown size={12} className={`transition-transform ${isLangDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {isLangDropdownOpen && (
+              <div className="absolute right-0 top-full mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-black/10 overflow-hidden min-w-[120px]">
+                {languages.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => {
+                      setLang(l.code);
+                      setIsLangDropdownOpen(false);
+                    }}
+                    className={`w-full px-4 py-2.5 text-left text-[13px] font-bold hover:bg-[#0071e3]/10 transition-colors ${
+                      lang === l.code ? 'bg-[#0071e3]/10 text-[#0071e3]' : 'text-black'
+                    }`}
+                  >
+                    {l.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           <a href="#contact" className="bg-[#0071e3] text-white px-5 py-1.5 rounded-full hover:bg-[#0077ed] transition-colors text-xs font-black shadow-lg">
-            Contact
+            {t.nav.contact}
           </a>
         </div>
 
@@ -76,6 +112,23 @@ export function Navbar() {
               </li>
             ))}
           </ul>
+          
+          {/* Mobile Language Selector */}
+          <div className="mt-12 flex justify-center gap-4 px-8">
+            {languages.map((l) => (
+              <button
+                key={l.code}
+                onClick={() => setLang(l.code)}
+                className={`px-6 py-3 rounded-2xl text-lg font-black transition-all ${
+                  lang === l.code 
+                    ? 'bg-[#0071e3] text-white shadow-lg' 
+                    : 'bg-white/40 text-black border border-black/10'
+                }`}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </nav>

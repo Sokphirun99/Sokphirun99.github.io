@@ -2,9 +2,11 @@ import { ChevronRight } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { logEvent } from "firebase/analytics";
 import { analytics } from "../../firebase";
-import { projects } from '../../data/projects';
+import { useLanguage } from '../../context/useLanguage';
 
 export function Projects() {
+  const { t } = useLanguage();
+
   const trackProjectClick = (projectName) => {
     if (analytics) {
       logEvent(analytics, 'select_content', {
@@ -14,12 +16,35 @@ export function Projects() {
     }
   };
 
+  const projects = [
+    {
+      id: 'blockerino',
+      name: t.projects.blockerino.name,
+      description: t.projects.blockerino.description,
+      icon: '/app_icon/app_icon_blockerino.webp',
+      iconAlt: 'Blockerino Game Icon',
+      link: 'https://play.google.com/store/apps/details?id=com.KRSTUDIO.blockerino',
+      linkLabel: t.projects.blockerino.link,
+      features: t.projects.blockerino.features,
+    },
+    {
+      id: 'khmerlens',
+      name: t.projects.khmerlens.name,
+      description: t.projects.khmerlens.description,
+      icon: '/app_icon/app_icon_khmerlens.webp',
+      iconAlt: 'KhmerLens App Icon',
+      link: 'https://play.google.com/store/apps/details?id=com.KRSTUDIO.khmerscan',
+      linkLabel: t.projects.khmerlens.link,
+      features: t.projects.khmerlens.features,
+    },
+  ];
+
   return (
     <section id="projects" className="py-32 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal className="text-center mb-24">
-          <h3 className="text-5xl md:text-6xl font-black tracking-tighter text-black mb-6">Shipped Products.</h3>
-          <p className="text-2xl font-bold text-slate-900 tracking-tight">Real apps. Real users. Real impact.</p>
+          <h3 className="text-5xl md:text-6xl font-black tracking-tighter text-black mb-6">{t.projects.heading}</h3>
+          <p className="text-2xl font-bold text-slate-900 tracking-tight">{t.projects.subheading}</p>
         </Reveal>
 
         <div className="flex flex-col gap-24">

@@ -1,9 +1,13 @@
+import { useLanguage } from '../../context/useLanguage';
+
 export function Footer() {
+  const { t } = useLanguage();
+
   const navLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Services', href: '#services' },
-    { label: 'Contact', href: '#contact' }
+    { label: t.nav.about, href: '#about' },
+    { label: t.nav.projects, href: '#projects' },
+    { label: t.nav.services, href: '#services' },
+    { label: t.nav.contact, href: '#contact' }
   ];
 
   return (
@@ -14,7 +18,7 @@ export function Footer() {
             <img src="/app_icon/developer icon.webp" alt="KR Studio" className="w-6 h-6 rounded-md object-cover" />
             <span className="font-black text-black tracking-tight">KR Studio</span>
           </div>
-          <p className="text-[13px] text-slate-800 font-bold">Crafting premium mobile experiences.</p>
+          <p className="text-[13px] text-slate-800 font-bold">{t.footer.tagline}</p>
         </div>
 
         <div className="flex gap-8 text-[13px] font-black text-black">
@@ -26,7 +30,7 @@ export function Footer() {
         </div>
 
         <div className="text-[12px] text-slate-700 font-bold text-center md:text-right">
-          <p>© 2026 KR Studio. All rights reserved.</p>
+          <p>{t.footer.copyright}</p>
         </div>
       </div>
     </footer>

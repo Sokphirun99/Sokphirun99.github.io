@@ -3,24 +3,26 @@ import { ChevronRight, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
+import { useLanguage } from '../../context/useLanguage';
 
 export function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.name.trim()) newErrors.name = t.contact.form.errors.nameRequired;
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t.contact.form.errors.emailRequired;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Enter a valid email';
+      newErrors.email = t.contact.form.errors.emailInvalid;
     }
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = t.contact.form.errors.messageRequired;
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters';
+      newErrors.message = t.contact.form.errors.messageLength;
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -60,10 +62,10 @@ export function Contact() {
       <div className="max-w-4xl mx-auto px-6 text-center">
         <Reveal>
           <h3 className="text-6xl md:text-7xl font-bold tracking-tighter text-[#1d1d1f] mb-8">
-            Let's talk.
+            {t.contact.heading}
           </h3>
           <p className="text-2xl font-medium text-slate-700 mb-12 max-w-2xl mx-auto tracking-tight">
-            Got an idea for a game or an app? I'm always open to discussing new projects.
+            {t.contact.subheading}
           </p>
         </Reveal>
 
@@ -74,20 +76,20 @@ export function Contact() {
             {status === 'success' ? (
               <div className="p-12 flex flex-col items-center gap-4">
                 <CheckCircle size={48} className="text-green-500" />
-                <h4 className="text-2xl font-black text-black">Message sent!</h4>
-                <p className="text-black/80 font-bold">Thank you for reaching out. I'll get back to you soon.</p>
+                <h4 className="text-2xl font-black text-black">{t.contact.form.sent}</h4>
+                <p className="text-black/80 font-bold">{t.contact.form.sentMessage}</p>
                 <button
                   onClick={() => setStatus('idle')}
                   className="mt-4 text-[#0071e3] hover:underline font-bold text-[15px]"
                 >
-                  Send another message
+                  {t.contact.form.sendAnother}
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="p-8 md:p-12 flex flex-col gap-5" noValidate>
                 <div className="flex flex-col gap-1.5 text-left">
                   <label htmlFor="name" className="text-[13px] font-black text-black uppercase tracking-wider">
-                    Name
+                    {t.contact.form.name}
                   </label>
                   <input
                     id="name"
@@ -95,7 +97,7 @@ export function Contact() {
                     type="text"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Your name"
+                    placeholder={t.contact.form.namePlaceholder}
                     className={`w-full px-5 py-3 rounded-2xl bg-white/40 backdrop-blur-sm border text-black font-bold text-[16px] placeholder:text-black/30 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/50 transition-all ${
                       errors.name ? 'border-red-400' : 'border-black/10'
                     }`}
@@ -109,7 +111,7 @@ export function Contact() {
 
                 <div className="flex flex-col gap-1.5 text-left">
                   <label htmlFor="email" className="text-[13px] font-black text-black uppercase tracking-wider">
-                    Email
+                    {t.contact.form.email}
                   </label>
                   <input
                     id="email"
@@ -117,7 +119,7 @@ export function Contact() {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="you@example.com"
+                    placeholder={t.contact.form.emailPlaceholder}
                     className={`w-full px-5 py-3 rounded-2xl bg-white/40 backdrop-blur-sm border text-black font-bold text-[16px] placeholder:text-black/30 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/50 transition-all ${
                       errors.email ? 'border-red-400' : 'border-black/10'
                     }`}
@@ -131,7 +133,7 @@ export function Contact() {
 
                 <div className="flex flex-col gap-1.5 text-left">
                   <label htmlFor="message" className="text-[13px] font-black text-black uppercase tracking-wider">
-                    Message
+                    {t.contact.form.message}
                   </label>
                   <textarea
                     id="message"
@@ -139,7 +141,7 @@ export function Contact() {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell me about your project..."
+                    placeholder={t.contact.form.messagePlaceholder}
                     className={`w-full px-5 py-3 rounded-2xl bg-white/40 backdrop-blur-sm border text-black font-bold text-[16px] placeholder:text-black/30 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/50 transition-all resize-none ${
                       errors.message ? 'border-red-400' : 'border-black/10'
                     }`}
@@ -153,7 +155,7 @@ export function Contact() {
 
                 {status === 'error' && (
                   <div className="text-red-500 text-[13px] font-bold flex items-center gap-1 justify-center">
-                    <AlertCircle size={14} /> Something went wrong. Please try again.
+                    <AlertCircle size={14} /> {t.contact.form.error}
                   </div>
                 )}
 
@@ -165,11 +167,11 @@ export function Contact() {
                   {status === 'submitting' ? (
                     <>
                       <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Sending...
+                      {t.contact.form.sending}
                     </>
                   ) : (
                     <>
-                      Send Message <Send size={16} />
+                      {t.contact.form.send} <Send size={16} />
                     </>
                   )}
                 </button>
@@ -181,12 +183,12 @@ export function Contact() {
         <Reveal delay={300}>
           <div className="mt-16 text-[#0071e3] hover:underline font-bold text-[17px]">
             <a href="mailto:khiev.sokpirun999@gmail.com" className="inline-flex items-center gap-1 group">
-              Or email me directly <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              {t.contact.emailDirectly} <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
           <div className="mt-4 text-[#0071e3] hover:underline font-bold text-[17px]">
             <a href="https://github.com/Sokphirun99" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 group">
-              View GitHub Profile <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              {t.contact.github} <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </Reveal>
