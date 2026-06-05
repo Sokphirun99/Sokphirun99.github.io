@@ -11,7 +11,7 @@ export function About() {
             <div className="relative group">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-[2.5rem] overflow-hidden shadow-2xl transition-transform duration-700 group-hover:scale-[1.02] border border-white/20 bg-white/10 backdrop-blur-sm">
                 <img 
-                  src="/app_icon/developer icon.png" 
+                  src="/app_icon/developer icon.webp" 
                   alt="Phirun Khiev - Founder of KR Studio" 
                   className="w-full h-full object-cover"
                 />

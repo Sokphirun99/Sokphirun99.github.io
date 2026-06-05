@@ -27,7 +27,7 @@ export function Navbar() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex justify-between items-center text-[13px] font-bold tracking-tight">
         
         <a href="#" className="flex items-center gap-2 text-black transition-colors">
-          <img src="/app_icon/developer icon.png" alt="KR Studio" className="w-8 h-8 rounded-lg object-cover shadow-sm" />
+          <img src="/app_icon/developer icon.webp" alt="KR Studio" className="w-8 h-8 rounded-lg object-cover shadow-sm" />
           <span className="font-black text-base tracking-tight">KR Studio</span>
         </a>
         

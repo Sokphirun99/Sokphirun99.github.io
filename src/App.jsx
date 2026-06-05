@@ -12,7 +12,7 @@ export default function App() {
       {/* Background Layer with Apple-style Glassmorphism */}
       <div className="fixed inset-0 -z-20">
         <img 
-          src="/background_image/Feature_graphic.png" 
+          src="/background_image/Feature_graphic.webp" 
           alt="Background" 
           className="w-full h-full object-cover"
         />

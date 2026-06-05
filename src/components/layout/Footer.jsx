@@ -11,7 +11,7 @@ export function Footer() {
       <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-            <img src="/app_icon/developer icon.png" alt="KR Studio" className="w-6 h-6 rounded-md object-cover" />
+            <img src="/app_icon/developer icon.webp" alt="KR Studio" className="w-6 h-6 rounded-md object-cover" />
             <span className="font-black text-black tracking-tight">KR Studio</span>
           </div>
           <p className="text-[13px] text-slate-800 font-bold">Crafting premium mobile experiences.</p>
