@@ -11,6 +11,15 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { label: 'About', href: '#about' },
     { label: 'Projects', href: '#projects' },
@@ -54,14 +63,14 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-white/40 backdrop-blur-3xl p-8 flex flex-col justify-center">
-          <button onClick={() => setIsMobileMenuOpen(false)} className="absolute top-6 right-6 text-black">
-            <X size={32} />
+        <div className="md:hidden fixed inset-0 z-[60] bg-white/95 backdrop-blur-xl flex flex-col justify-center">
+          <button onClick={() => setIsMobileMenuOpen(false)} className="absolute top-5 right-5 text-black p-2">
+            <X size={28} />
           </button>
-          <ul className="flex flex-col gap-8 text-3xl font-black text-black text-center">
+          <ul className="flex flex-col gap-8 text-3xl font-black text-black text-center px-8">
             {navLinks.map((item) => (
               <li key={item.label}>
-                <a href={item.href} onClick={() => setIsMobileMenuOpen(false)}>
+                <a href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#0071e3] transition-colors">
                   {item.label}
                 </a>
               </li>
