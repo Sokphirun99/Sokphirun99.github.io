@@ -20,7 +20,7 @@ export function Reveal({ children, className = '', delay = 0 }) {
     return () => observer.disconnect();
   }, []);
 
-  const cls = `transition-all duration-1000 ease-out ${
+  const cls = `transition-opacity transition-transform duration-1000 ease-out ${
     visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
   } ${className}`;
 

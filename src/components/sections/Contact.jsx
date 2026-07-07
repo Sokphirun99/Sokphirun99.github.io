@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { ChevronRight, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { getDbInstance } from '../../firebase';
 import { useLanguage } from '../../context/useLanguage';
 
 export function Contact() {
@@ -42,7 +41,9 @@ export function Contact() {
 
     setStatus('submitting');
     try {
+      const db = await getDbInstance();
       if (db) {
+        const { collection, addDoc, serverTimestamp } = await import('firebase/firestore');
         await addDoc(collection(db, 'contact_submissions'), {
           name: formData.name.trim(),
           email: formData.email.trim(),
@@ -71,7 +72,7 @@ export function Contact() {
 
         <Reveal delay={200}>
           <div className="relative max-w-xl mx-auto">
-            <div className="absolute -inset-6 bg-white/10 backdrop-blur-xl rounded-[2.5rem] -z-10 border border-white/20 shadow-2xl" />
+            <div className="absolute -inset-6 bg-white/10 backdrop-blur-[19px] rounded-[28px] -z-10 border border-white/20 shadow-2xl" />
 
             {status === 'success' ? (
               <div className="p-12 flex flex-col items-center gap-4">

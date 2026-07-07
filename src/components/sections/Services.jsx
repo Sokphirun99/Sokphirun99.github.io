@@ -2,10 +2,10 @@ import { Reveal } from '../ui/Reveal';
 import { useLanguage } from '../../context/useLanguage';
 
 const serviceIcons = {
-  apple: '/icon/apple.png',
-  android: '/icon/android.png',
-  game: '/icon/game.png',
-  prototype: '/icon/prototype.png',
+  apple: '/icon/responsive/apple-96.webp',
+  android: '/icon/responsive/android-96.webp',
+  game: '/icon/responsive/game-96.webp',
+  prototype: '/icon/responsive/prototype-96.webp',
 };
 
 export function Services() {
@@ -46,17 +46,17 @@ export function Services() {
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((srv, idx) => (
             <Reveal key={srv.id} delay={idx * 150} className="relative group">
-              <div className="absolute inset-0 bg-white/10 backdrop-blur-xl rounded-[2.5rem] -z-10 border border-white/20 shadow-2xl transition-all duration-500 group-hover:bg-white/15" />
+              <div className="absolute inset-0 bg-white/10 backdrop-blur-[19px] rounded-[24px] -z-10 border border-white/20 shadow-2xl transition-all duration-500 group-hover:bg-white/15" />
               
               <div className="p-12 flex flex-col items-center text-center h-full hover:scale-[1.02] transition-transform duration-500">
                 {srv.icons.length > 1 ? (
                   <div className="flex items-center gap-4 mb-6">
                     {srv.icons.map((icon, i) => (
-                      <img key={i} src={icon.src} alt={icon.alt} className="w-9 h-9 object-contain" />
+                      <img key={i} src={icon.src} alt={icon.alt} width="36" height="36" loading="lazy" className="w-9 h-9 object-contain" />
                     ))}
                   </div>
                 ) : (
-                  <img src={srv.icons[0].src} alt={srv.icons[0].alt} className="w-10 h-10 object-contain mb-6 opacity-90" />
+                  <img src={srv.icons[0].src} alt={srv.icons[0].alt} width="40" height="40" loading="lazy" className="w-10 h-10 object-contain mb-6 opacity-90" />
                 )}
                 <h4 className="text-[22px] font-black tracking-tight mb-4 text-black">{srv.title}</h4>
                 <p className="text-[17px] text-black leading-relaxed font-bold opacity-90">{srv.description}</p>

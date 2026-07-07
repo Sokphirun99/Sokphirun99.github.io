@@ -12,11 +12,16 @@ export function About() {
           {/* Profile Visual */}
           <Reveal className="flex justify-center">
             <div className="relative group">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-[2.5rem] overflow-hidden shadow-2xl transition-transform duration-700 group-hover:scale-[1.02] border border-white/20 bg-white/10 backdrop-blur-sm">
-                <img 
-                  src="/app_icon/developer icon.webp" 
-                  alt="Phirun Khiev - Founder of KR Studio" 
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-[28px] overflow-hidden shadow-2xl transition-transform duration-700 group-hover:scale-[1.02] border border-white/20 bg-white/10 backdrop-blur-sm">
+                <img
+                  src="/app_icon/developer-icon.webp"
+                  srcSet="/app_icon/responsive/developer-icon-128.webp 128w, /app_icon/responsive/developer-icon-256.webp 256w, /app_icon/developer-icon.webp 512w"
+                  sizes="(min-width: 768px) 320px, 256px"
+                  width="512"
+                  height="512"
+                  alt="Phirun Khiev - Founder of KR Studio"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               <div className="absolute -z-10 -bottom-6 -right-6 w-32 h-32 bg-white/20 rounded-full blur-3xl" />
@@ -25,7 +30,7 @@ export function About() {
 
           {/* Story Content */}
           <Reveal delay={200} className="relative">
-            <div className="absolute -inset-8 bg-white/10 backdrop-blur-xl rounded-[3rem] -z-10 border border-white/20 shadow-2xl" />
+            <div className="absolute -inset-8 bg-white/10 backdrop-blur-[19px] rounded-[28px] -z-10 border border-white/20 shadow-2xl" />
             
             <h3 className="text-4xl md:text-5xl font-black tracking-tighter text-black mb-8 leading-tight">
               {t.about.heading}
@@ -33,17 +38,13 @@ export function About() {
             
             <div className="space-y-6 text-[18px] md:text-[20px] text-black leading-relaxed font-bold opacity-90">
               <p>
-                {t.about.paragraph1}
-                <span className="text-black font-black italic"> {t.about.studio}</span>
+                {t.about.paragraph1}{' '}
+                <span className="text-black font-black italic">{t.about.studio}</span>
                 {t.about.paragraph1End}
               </p>
               
               <p>
                 {t.about.paragraph2}
-                <span className="text-black font-black italic"> {t.about.blockerino}</span>
-                {t.about.paragraph2Middle}
-                <span className="text-black font-black italic"> {t.about.khmerlens}</span>
-                {t.about.paragraph2End}
               </p>
 
               <p>
@@ -54,7 +55,7 @@ export function About() {
             {/* Mini Stats */}
             <div className="mt-12 pt-12 border-t border-black/[0.15]">
               <div>
-                <div className="text-4xl font-black text-black">2022</div>
+                <div className="text-4xl font-black text-black">2025</div>
                 <div className="text-[13px] text-black uppercase tracking-wider font-black mt-1">{t.about.founded}</div>
               </div>
             </div>

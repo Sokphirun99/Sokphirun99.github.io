@@ -1,6 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -12,19 +10,41 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-let app;
-let analytics = null;
-let db = null;
+let app = null;
+let analyticsPromise = null;
+let dbPromise = null;
 
 if (import.meta.env.VITE_FIREBASE_API_KEY) {
   app = initializeApp(firebaseConfig);
-  if (typeof window !== 'undefined') {
-    analytics = getAnalytics(app);
-  }
-  db = getFirestore(app);
 } else {
   console.warn("Firebase API Key is missing. Analytics will not be initialized.");
 }
 
-export { analytics, db };
+/**
+ * Lazily initialize Firebase Analytics. Only loads the analytics SDK when
+ * actually needed, keeping it out of the initial JavaScript bundle.
+ */
+export async function getAnalyticsInstance() {
+  if (!app || typeof window === "undefined") return null;
+  if (!analyticsPromise) {
+    analyticsPromise = import("firebase/analytics")
+      .then(({ getAnalytics }) => getAnalytics(app));
+  }
+  return analyticsPromise;
+}
+
+/**
+ * Lazily initialize Cloud Firestore. Only loads the Firestore SDK when a
+ * component requests a database instance.
+ */
+export async function getDbInstance() {
+  if (!app) return null;
+  if (!dbPromise) {
+    dbPromise = import("firebase/firestore")
+      .then(({ getFirestore }) => getFirestore(app));
+  }
+  return dbPromise;
+}
+
+export { app };
 export default app;
