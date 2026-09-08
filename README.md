@@ -95,4 +95,4 @@ public/
 
 ## License
 
-This project is private. All rights reserved.
+Source code and brand assets are © 2025-2026 KR Studio / Phirun Khiev. All rights reserved.

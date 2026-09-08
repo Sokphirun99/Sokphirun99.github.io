@@ -24,22 +24,22 @@ export function About() {
                   loading="lazy"
                 />
               </div>
-              <div className="absolute -z-10 -bottom-6 -right-6 w-32 h-32 bg-white/20 rounded-full blur-3xl" />
+              <div className="absolute -z-10 -bottom-6 -right-6 w-32 h-32 bg-[#e86bd8]/20 rounded-full blur-3xl" />
             </div>
           </Reveal>
 
           {/* Story Content */}
           <Reveal delay={200} className="relative">
-            <div className="absolute -inset-8 bg-white/10 backdrop-blur-[19px] rounded-[28px] -z-10 border border-white/20 shadow-2xl" />
+            <div className="absolute -inset-8 bg-white/[0.04] backdrop-blur-md md:backdrop-blur-[19px] rounded-[28px] -z-10 border border-white/10 shadow-2xl" />
             
-            <h3 className="text-4xl md:text-5xl font-black tracking-tighter text-black mb-8 leading-tight">
+            <h3 className="text-4xl md:text-5xl font-black tracking-tighter text-white mb-8 leading-tight">
               {t.about.heading}
             </h3>
             
-            <div className="space-y-6 text-[18px] md:text-[20px] text-black leading-relaxed font-bold opacity-90">
+            <div className="space-y-6 text-[18px] md:text-[20px] text-white/80 leading-relaxed font-normal">
               <p>
                 {t.about.paragraph1}{' '}
-                <span className="text-black font-black italic">{t.about.studio}</span>
+                <span className="text-white font-bold italic">{t.about.studio}</span>
                 {t.about.paragraph1End}
               </p>
               
@@ -53,10 +53,10 @@ export function About() {
             </div>
 
             {/* Mini Stats */}
-            <div className="mt-12 pt-12 border-t border-black/[0.15]">
+            <div className="mt-12 pt-12 border-t border-white/10">
               <div>
-                <div className="text-4xl font-black text-black">2025</div>
-                <div className="text-[13px] text-black uppercase tracking-wider font-black mt-1">{t.about.founded}</div>
+                <div className="text-4xl font-black text-white">2025</div>
+                <div className="text-[13px] text-white/50 uppercase tracking-wider font-bold mt-1">{t.about.founded}</div>
               </div>
             </div>
           </Reveal>

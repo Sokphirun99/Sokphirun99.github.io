@@ -2,39 +2,40 @@ export default {
   nav: {
     about: "About",
     projects: "Projects",
-    services: "Services",
+    services: "What I Build",
     contact: "Contact",
   },
   hero: {
-    title: "Hi, I'm Phirun, founder of KR Studio.",
+    title: "Hi, I'm Phirun. Software Engineer & Founder of KR Studio.",
     subtitle:
-      "Software engineer building simple, fast, and reliable digital products.",
+      "I build practical software products—from mobile apps and web platforms to AI-powered tools—with clean architecture and thoughtful UX.",
     viewProjects: "View Projects",
+    aboutMe: "About Me",
     contactMe: "Get in Touch",
   },
   about: {
-    heading: "Hi, I'm Phirun.",
-    paragraph1: "I'm a software engineer and solo founder of",
+    heading: "About Me",
+    paragraph1: "I'm Phirun, a software engineer and founder of",
     studio: "KR Studio",
     paragraph1End: ".",
     paragraph2:
-      "I design and build mobile apps, web applications, and software tools with a focus on simplicity, performance, and user experience.",
+      "I build mobile applications, web platforms, games, and AI-powered tools from idea to production. My work focuses on clean architecture, maintainable code, performance, security, and practical user experience.",
     paragraph3:
-      "Every product I create is built with clean code, thoughtful design, and attention to the details that matter.",
+      "I enjoy solving real engineering problems, designing systems that can grow, and turning ideas into software that people can actually use.",
     founded: "Founded",
   },
   projects: {
-    heading: "Shipped Products.",
-    subheading: "Real apps. Real users. Real impact.",
+    heading: "Selected Projects",
+    subheading: "Software I've designed, built, and shipped.",
     blockerino: {
       name: "Blockerino: Block Puzzle",
       description:
-        "A modern block puzzle game featuring multiple game modes, challenging levels, and satisfying combo mechanics.",
+        "A mobile block puzzle game built in Unity with multiple game modes, progression systems, offline gameplay, and polished interaction design.",
       metadata: "Google Play • Unity • 2025",
       tags: ["Puzzle Game", "Unity", "Android", "Offline"],
       features: [
         "Classic & Adventure Modes",
-        "100+ Levels",
+        "999 Levels",
         "Combo System",
         "Offline Play",
       ],
@@ -44,7 +45,7 @@ export default {
     khmerlens: {
       name: "KhmerLens",
       description:
-        "An AI-powered document scanner that scans, translates, extracts text, and converts files—all while keeping your data private.",
+        "A privacy-focused document utility built with Flutter, combining document scanning, OCR, translation, PDF tools, and intelligent text processing in one mobile application.",
       metadata: "Google Play • Flutter • AI",
       tags: ["Flutter", "AI", "OCR", "Privacy"],
       features: [
@@ -58,29 +59,35 @@ export default {
     },
   },
   services: {
-    heading: "Expertise.",
-    subheading: "Everything needed to ship.",
+    heading: "What I Build",
+    subheading: "Focused on practical, production-ready software.",
     items: [
       {
-        title: "iOS & Android",
+        title: "Mobile Development",
         description:
-          "Native-feeling cross-platform applications built meticulously with Flutter.",
+          "Cross-platform mobile applications built with Flutter, with a focus on architecture, performance, maintainability, and polished UX.",
       },
       {
-        title: "Game Dev",
-        description: "Engaging, polished 2D and 3D games engineered in Unity.",
+        title: "Web & Backend",
+        description:
+          "Modern web applications and backend systems designed for reliability, scalability, and maintainable development.",
       },
       {
-        title: "Prototyping",
+        title: "AI & Intelligent Tools",
         description:
-          "Rapid MVPs to test and validate your core mechanics fast.",
+          "Practical AI features including OCR, document intelligence, automation, data analysis, and AI-assisted workflows.",
+      },
+      {
+        title: "Game Development",
+        description:
+          "Interactive mobile games built with Unity, with a focus on gameplay systems, performance, and polished user interaction.",
       },
     ],
   },
   contact: {
-    heading: "Let's talk.",
+    heading: "Let's Connect",
     subheading:
-      "Got an idea for a game or an app? I'm always open to discussing new projects.",
+      "Interested in my work, a technical collaboration, or a software project? Feel free to get in touch.",
     form: {
       name: "Name",
       namePlaceholder: "Your name",
@@ -106,7 +113,7 @@ export default {
     github: "View GitHub Profile",
   },
   footer: {
-    tagline: "Crafting premium mobile experiences.",
+    tagline: "Building useful software, one product at a time.",
     copyright: "© 2025 KR Studio. All rights reserved.",
   },
 };
