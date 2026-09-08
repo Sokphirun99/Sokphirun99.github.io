@@ -53,7 +53,7 @@ export function Navbar() {
           <span className="font-black text-base tracking-tight text-white">KR Studio</span>
         </a>
         
-        <ul className="hidden md:flex items-center justify-center space-x-10 text-white/90">
+        <ul className="hidden lg:flex items-center justify-center space-x-10 text-white/90">
           {navLinks.map((item) => (
             <li key={item.label}>
               <a href={item.href} className="hover:text-white transition-colors">
@@ -63,7 +63,7 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <a href="#contact" className="bg-[#0071e3] text-white px-5 py-1.5 rounded-full hover:bg-[#0077ed] transition-colors text-xs font-black shadow-lg">
             {t.nav.contact}
           </a>
@@ -75,24 +75,24 @@ export function Navbar() {
           aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-navigation"
-          className="md:hidden text-white focus:outline-none p-1"
+          className="lg:hidden text-white focus:outline-none p-3 -mr-2"
         >
-          {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div id="mobile-navigation" className="md:hidden fixed inset-0 z-[60] bg-[#0f1013]/95 backdrop-blur-xl flex flex-col justify-center">
+        <div id="mobile-navigation" className="lg:hidden fixed inset-0 z-[60] bg-[#0f1013]/95 backdrop-blur-xl flex flex-col justify-center">
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Close navigation menu"
-            className="absolute top-5 right-5 text-white p-2"
+            className="absolute top-5 right-5 text-white p-3"
           >
-            <X size={28} />
+            <X size={24} />
           </button>
-          <ul className="flex flex-col gap-8 text-3xl font-black text-white text-center px-8">
+          <ul className="flex flex-col gap-8 text-2xl sm:text-3xl font-black text-white text-center px-8">
             {navLinks.map((item) => (
               <li key={item.label}>
                 <a href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#0071e3] transition-colors">

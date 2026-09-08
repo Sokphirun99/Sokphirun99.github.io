@@ -150,10 +150,14 @@ export function GlowThreads({
       U[name] = gl.getUniformLocation(prog, name);
     }
 
-    function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const w = Math.floor(canvas.clientWidth * dpr);
-      const h = Math.floor(canvas.clientHeight * dpr);
+    let isMobile = window.innerWidth < 768;
+
+    function updateSize() {
+      isMobile = window.innerWidth < 768;
+      // Mobile optimizations: DPR 1 to prevent rendering millions of pixels per frame
+      const maxDpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
+      const w = Math.floor(canvas.clientWidth * maxDpr);
+      const h = Math.floor(canvas.clientHeight * maxDpr);
       if (canvas.width !== w || canvas.height !== h) {
         canvas.width = w;
         canvas.height = h;
@@ -161,23 +165,40 @@ export function GlowThreads({
       }
     }
 
-    window.addEventListener('resize', resize);
-    resize();
+    const resizeObserver = new ResizeObserver(() => {
+      updateSize();
+    });
+    resizeObserver.observe(canvas);
+
+    window.addEventListener('resize', updateSize);
+    updateSize();
 
     const reduceMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     ).matches;
-    const t0 = performance.now();
+
+    let lastTime = performance.now();
+    let accumulatedTime = 0;
     let animId;
 
     function frame(now) {
-      resize();
-      const t = reduceMotion ? 0 : (now - t0) / 1000;
+      if (document.hidden) return;
+
+      const delta = Math.min((now - lastTime) / 1000, 0.1);
+      lastTime = now;
+      if (!reduceMotion) {
+        accumulatedTime += delta;
+      }
+      const t = reduceMotion ? 0 : accumulatedTime;
+
+      // Responsive settings: 5 threads and 0.6x speed on mobile for performance
+      const effectiveCount = isMobile ? Math.min(count, 5) : count;
+      const effectiveSpeed = isMobile ? speed * 0.6 : speed;
 
       gl.uniform2f(U.uRes, canvas.width, canvas.height);
       gl.uniform1f(U.uTime, t);
-      gl.uniform1f(U.uSpeed, speed);
-      gl.uniform1f(U.uCount, count);
+      gl.uniform1f(U.uSpeed, effectiveSpeed);
+      gl.uniform1f(U.uCount, effectiveCount);
       gl.uniform3fv(U.uColA, hex(colors[0]));
       gl.uniform3fv(U.uColB, hex(colors[1]));
       gl.uniform3fv(U.uColC, hex(colors[2]));
@@ -185,16 +206,33 @@ export function GlowThreads({
 
       gl.drawArrays(gl.TRIANGLES, 0, 3);
 
-      if (!reduceMotion) {
+      if (!reduceMotion && !document.hidden) {
         animId = requestAnimationFrame(frame);
       }
     }
 
-    animId = requestAnimationFrame(frame);
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (animId) cancelAnimationFrame(animId);
+      } else {
+        lastTime = performance.now();
+        if (!reduceMotion) {
+          animId = requestAnimationFrame(frame);
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    if (!document.hidden) {
+      animId = requestAnimationFrame(frame);
+    }
 
     return () => {
       cancelAnimationFrame(animId);
-      window.removeEventListener('resize', resize);
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', updateSize);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       if (gl) {
         gl.deleteProgram(prog);
         gl.deleteShader(vertShader);

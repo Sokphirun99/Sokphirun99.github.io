@@ -1,6 +1,6 @@
-# KR Studio — Portfolio
+# Phirun — Software Engineer & Founder of KR Studio
 
-The official portfolio website for **KR Studio**, an independent mobile app and game development studio based in Phnom Penh, Cambodia.
+The personal portfolio and product showcase of **Phirun**, software engineer and founder of **KR Studio**. KR Studio builds practical software products—from mobile applications and web platforms to AI-powered tools and interactive games—focusing on clean architecture, performance, security, and thoughtful UX.
 
 ![Deploy](https://github.com/Sokphirun99/Sokphirun99.github.io/actions/workflows/deploy.yml/badge.svg)
 
@@ -12,17 +12,18 @@ The official portfolio website for **KR Studio**, an independent mobile app and 
 
 | Category | Technology |
 |----------|-----------|
-| Framework | [React 19](https://react.dev/) |
+| Frontend | [React 19](https://react.dev/) |
 | Build Tool | [Vite 8](https://vite.dev/) |
 | Styling | [Tailwind CSS 3](https://tailwindcss.com/) |
-| Analytics | [Firebase 12](https://firebase.google.com/) |
+| Visual Effects | WebGL Shaders (GlowThreads) |
+| Backend & Database | [Firebase / Cloud Firestore](https://firebase.google.com/) |
 | Icons | [Lucide React](https://lucide.dev/) |
-| Deployment | GitHub Pages (Actions) |
+| CI/CD | GitHub Actions & GitHub Pages |
 
 ## Shipped Products
 
-- **[Blockerino: Block Puzzle](https://play.google.com/store/apps/details?id=com.KRSTUDIO.blockerino)** — A block puzzle game with Classic, Adventure & Timed modes, combo system, and hundreds of levels.
-- **[KhmerLens](https://play.google.com/store/apps/details?id=com.KRSTUDIO.khmerscan)** — A privacy-first document scanner with OCR, translation, barcode detection, and PDF conversion.
+- **[Blockerino: Block Puzzle](https://play.google.com/store/apps/details?id=com.KRSTUDIO.blockerino)** — A mobile block puzzle game built in Unity featuring Classic and Adventure modes, combo systems, offline gameplay, and 999 levels.
+- **[KhmerLens](https://play.google.com/store/apps/details?id=com.KRSTUDIO.khmerscan)** — A privacy-focused document utility built with Flutter combining smart scanning, OCR text recognition, instant language translation, and PDF tools.
 
 ## Getting Started
 
@@ -47,7 +48,7 @@ Copy `.env.example` to `.env` and fill in your Firebase credentials:
 cp .env.example .env
 ```
 
-```
+```env
 VITE_FIREBASE_API_KEY=your_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
 VITE_FIREBASE_PROJECT_ID=your_project_id
@@ -63,36 +64,27 @@ VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
 npm run dev
 ```
 
-### Build
+### Build & Preview
 
 ```bash
 npm run build
 npm run preview
 ```
 
-### Lint
+### Linting
 
 ```bash
 npm run lint
 ```
 
-## Project Structure
+### Deploying Firestore Security Rules
 
-```
-src/
-├── components/
-│   ├── layout/       # Navbar, Footer
-│   ├── sections/     # Hero, About, Projects, Services, Contact
-│   └── ui/           # Reusable UI components (Reveal animation)
-├── App.jsx
-├── firebase.js
-└── main.jsx
-public/
-├── app_icon/         # App icons (WebP)
-├── background_image/ # Background image (WebP)
-└── icon/             # Service icons
+To deploy the security rules defined in `firestore.rules`:
+
+```bash
+npx firebase-tools deploy --only firestore:rules
 ```
 
 ## License
 
-Source code and brand assets are © 2025-2026 KR Studio / Phirun Khiev. All rights reserved.
+Source code and brand assets are © 2025–2026 KR Studio / Phirun Khiev. All rights reserved.

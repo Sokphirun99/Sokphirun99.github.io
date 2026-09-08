@@ -102,23 +102,23 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-transparent">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+    <section id="contact" className="py-20 md:py-24 lg:py-32 bg-transparent">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <Reveal>
-          <h3 className="text-6xl md:text-7xl font-bold tracking-tighter text-white mb-8">
+          <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white mb-6 sm:mb-8">
             {t.contact.heading}
           </h3>
-          <p className="text-2xl font-medium text-white/70 mb-12 max-w-2xl mx-auto tracking-tight">
+          <p className="text-lg sm:text-xl md:text-2xl font-medium text-white/70 mb-8 sm:mb-12 max-w-2xl mx-auto tracking-tight">
             {t.contact.subheading}
           </p>
         </Reveal>
 
         <Reveal delay={200}>
           <div className="relative max-w-xl mx-auto">
-            <div className="absolute -inset-6 bg-white/[0.04] backdrop-blur-md md:backdrop-blur-[19px] rounded-[28px] -z-10 border border-white/10 shadow-2xl" />
+            <div className="absolute -inset-3 sm:-inset-5 lg:-inset-6 bg-white/[0.04] backdrop-blur-md md:backdrop-blur-[19px] rounded-[28px] -z-10 border border-white/10 shadow-2xl" />
 
             {status === 'success' ? (
-              <div className="p-12 flex flex-col items-center gap-4">
+              <div className="p-6 sm:p-8 md:p-12 flex flex-col items-center gap-4">
                 <CheckCircle size={48} className="text-green-400" />
                 <h4 className="text-2xl font-bold text-white">{t.contact.form.sent}</h4>
                 <p className="text-white/80 font-medium">{t.contact.form.sentMessage}</p>
@@ -130,7 +130,7 @@ export function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="p-8 md:p-12 flex flex-col gap-5" noValidate>
+              <form onSubmit={handleSubmit} className="p-5 sm:p-8 md:p-10 lg:p-12 flex flex-col gap-5" noValidate>
                 {/* Honeypot field for bot detection (hidden from human users) */}
                 <div className="hidden" aria-hidden="true">
                   <label htmlFor="website_hp">Website</label>
@@ -159,7 +159,7 @@ export function Contact() {
                     placeholder={t.contact.form.namePlaceholder}
                     aria-invalid={Boolean(errors.name)}
                     aria-describedby={errors.name ? 'name-error' : undefined}
-                    className={`w-full px-5 py-3 rounded-2xl bg-white/[0.06] backdrop-blur-sm border text-white font-medium text-[16px] placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#e86bd8]/50 focus:border-[#e86bd8] transition-all ${
+                    className={`w-full px-4 sm:px-5 py-3 rounded-2xl bg-white/[0.06] backdrop-blur-sm border text-white font-medium text-[15px] sm:text-[16px] placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#e86bd8]/50 focus:border-[#e86bd8] transition-all ${
                       errors.name ? 'border-red-400' : 'border-white/15'
                     }`}
                   />
@@ -184,7 +184,7 @@ export function Contact() {
                     placeholder={t.contact.form.emailPlaceholder}
                     aria-invalid={Boolean(errors.email)}
                     aria-describedby={errors.email ? 'email-error' : undefined}
-                    className={`w-full px-5 py-3 rounded-2xl bg-white/[0.06] backdrop-blur-sm border text-white font-medium text-[16px] placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#e86bd8]/50 focus:border-[#e86bd8] transition-all ${
+                    className={`w-full px-4 sm:px-5 py-3 rounded-2xl bg-white/[0.06] backdrop-blur-sm border text-white font-medium text-[15px] sm:text-[16px] placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#e86bd8]/50 focus:border-[#e86bd8] transition-all ${
                       errors.email ? 'border-red-400' : 'border-white/15'
                     }`}
                   />
@@ -209,7 +209,7 @@ export function Contact() {
                     placeholder={t.contact.form.messagePlaceholder}
                     aria-invalid={Boolean(errors.message)}
                     aria-describedby={errors.message ? 'message-error' : undefined}
-                    className={`w-full px-5 py-3 rounded-2xl bg-white/[0.06] backdrop-blur-sm border text-white font-medium text-[16px] placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#e86bd8]/50 focus:border-[#e86bd8] transition-all resize-none ${
+                    className={`w-full px-4 sm:px-5 py-3 rounded-2xl bg-white/[0.06] backdrop-blur-sm border text-white font-medium text-[15px] sm:text-[16px] placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#e86bd8]/50 focus:border-[#e86bd8] transition-all resize-none ${
                       errors.message ? 'border-red-400' : 'border-white/15'
                     }`}
                   />
@@ -229,7 +229,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="mt-2 bg-white text-[#0f1013] px-8 py-3.5 rounded-full font-bold text-[16px] hover:bg-white/90 transition-colors shadow-lg disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
+                  className="mt-2 bg-white text-[#0f1013] px-8 py-3.5 rounded-full font-bold text-[15px] sm:text-[16px] hover:bg-white/90 transition-colors shadow-lg disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
                 >
                   {status === 'submitting' ? (
                     <>
@@ -248,12 +248,12 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={300}>
-          <div className="mt-16 text-[#3898ff] hover:text-[#5fb0ff] hover:underline font-bold text-[17px]">
+          <div className="mt-12 sm:mt-16 text-[#3898ff] hover:text-[#5fb0ff] hover:underline font-bold text-[16px] sm:text-[17px]">
             <a href="mailto:khiev.sokpirun999@gmail.com" className="inline-flex items-center gap-1 group">
               {t.contact.emailDirectly} <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
-          <div className="mt-4 text-[#3898ff] hover:text-[#5fb0ff] hover:underline font-bold text-[17px]">
+          <div className="mt-3 sm:mt-4 text-[#3898ff] hover:text-[#5fb0ff] hover:underline font-bold text-[16px] sm:text-[17px]">
             <a href="https://github.com/Sokphirun99" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 group">
               {t.contact.github} <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
